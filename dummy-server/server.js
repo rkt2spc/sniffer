@@ -4,6 +4,7 @@ const Koa = require('koa');
 const Router = require('koa-router');
 const Logger = require('koa-morgan');
 const BodyParser = require('koa-bodyparser');
+const json = require('koa-json');
 const shortid = require('shortid');
 
 // Database
@@ -18,13 +19,14 @@ router.post('/records', async ({ request, response }) => {
 });
 router.get('/records', async ({ response }) => {
   const { records } = db.getCollections();
-  response.body = records.size();
+  response.body = { records };
 });
 
 // Application
 const app = new Koa();
 app.use(new Logger('dev'));
 app.use(new BodyParser());
+app.use(json());
 app.use(router.routes());
 
 // HTTP Server
