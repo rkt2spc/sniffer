@@ -1,4 +1,4 @@
-# http-sniffer
+# sniffer
 
 A WebExtension that sniff network traffics on browser and send them to a pre-configured server
 
