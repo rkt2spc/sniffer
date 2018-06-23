@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "Sniffer",
+  "version": "1.0",
+
+  "description": "Sniffing http traffic and send them to configured server",
+  "icons": {
+    "16": "images/logo-16x16.png",
+    "32": "images/logo-32x32.png",
+    "48": "images/logo-48x48.png",
+    "128": "images/logo-128x128.png"
+  },
+
+  "permissions": [
+    "webRequest",
+    "<all_urls>"
+  ],
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  }
+}
