@@ -12,6 +12,7 @@ A WebExtension that sniff network traffics on browser and send them to a pre-con
 
 ```sh
 cd dummy-server
+npm install
 npm start
 ```
 
