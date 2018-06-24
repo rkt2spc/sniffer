@@ -1,9 +1,12 @@
 // Dependencies
+const path = require('path');
 const http = require('http');
 const Koa = require('koa');
 const Router = require('koa-router');
 const Logger = require('koa-morgan');
 const BodyParser = require('koa-bodyparser');
+const serve = require('koa-static');
+const cors = require('@koa/cors');
 const json = require('koa-json');
 const shortid = require('shortid');
 
@@ -26,6 +29,8 @@ router.get('/records', async ({ response }) => {
 const app = new Koa();
 app.use(new Logger('dev'));
 app.use(new BodyParser());
+app.use(cors());
+app.use(serve(path.join(__dirname, 'public')));
 app.use(json());
 app.use(router.routes());
 
